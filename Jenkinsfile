@@ -36,6 +36,10 @@ pipeline {
                 emailext body: 'Test Message',
                 subject: 'Test Subject',
                 to: 'sharonpaam17420@gmail.com'
+                script {
+                    def discordMessage = "¡Hola equipo! La entrega se realizó correctamente."
+                    discordSend(message: discordMessage)
+                }
             }
         }
     }

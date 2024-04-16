@@ -33,9 +33,9 @@ pipeline {
                 sh '''
                 echo "doing delivery stuff.."
                 '''
-                emailext subject: 'Entrega completada',
-                  body: 'La tarea se realizó correctamente.',
-                  to: 'sharonpaam17420@gmail.com'
+                emailext body: 'Test Message',
+                subject: 'Test Subject',
+                to: 'sharonpaam17420@gmail.com'
             }
         }
     }

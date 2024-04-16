@@ -5,7 +5,7 @@ pipeline {
             }
       }
     triggers {
-        pollSCM '*/5 * * * *'
+        pollSCM '*/1 * * * *'
     }
     stages {
         stage('Build') {
@@ -33,6 +33,9 @@ pipeline {
                 sh '''
                 echo "doing delivery stuff.."
                 '''
+                emailext subject: 'Entrega completada',
+                  body: 'La tarea se realizó correctamente.',
+                  to: 'sharonpaam17420@gmail.com'
             }
         }
     }

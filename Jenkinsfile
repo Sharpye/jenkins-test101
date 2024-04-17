@@ -5,7 +5,7 @@ pipeline {
             }
       }
     triggers {
-        pollSCM '*/1 * * * *'
+        pollSCM '*/5 * * * *'
     }
     stages {
         stage('Build') {
@@ -38,7 +38,12 @@ pipeline {
                 to: 'sharonpaam17420@gmail.com'
                 script {
                     def discordMessage = "¡Hola equipo! La entrega se realizó correctamente."
-                    discordSend(message: discordMessage)
+                    def discordWebhookUrl = 'https://discord.com/api/webhooks/1229594864224829520/CE19t6B6yKtN9veyZG2ew019l80tsel8XE-SGATrgHoyVsdNqvtaYNju0GBSBNa_aXRC'
+                    httpRequest(
+                        contentType: 'APPLICATION_JSON',
+                        url: discordWebhookUrl,
+                        requestBody: "{\"content\": \"${discordMessage}\"}"
+                    )
                 }
             }
         }

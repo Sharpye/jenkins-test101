@@ -33,9 +33,6 @@ pipeline {
                 sh '''
                 echo "doing delivery stuff.."
                 '''
-                emailext body: 'Test Message',
-                subject: 'Test Subject',
-                to: 'sharonpaam17420@gmail.com'
                 script {
                     def discordMessage = "¡Hola equipo! La entrega se realizó correctamente."
                     def discordWebhookUrl = 'https://discord.com/api/webhooks/1229594864224829520/CE19t6B6yKtN9veyZG2ew019l80tsel8XE-SGATrgHoyVsdNqvtaYNju0GBSBNa_aXRC'
